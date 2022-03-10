@@ -1,8 +1,9 @@
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, ManyToMany } from 'typeorm';
+import { Customers } from './customer.entity';
 import { Dealership } from './dealership.entity';
 
 @Entity({ name: 'vehicle' })
-export class Vehicle extends Dealership {
+export class Vehicles extends Dealership {
   @Column({ length: '100' })
   name: string;
 
@@ -14,4 +15,7 @@ export class Vehicle extends Dealership {
 
   @Column()
   passengers: number;
+
+  @ManyToMany(() => Customers, (customers) => customers.vehicles)
+  customers: Customers[];
 }
