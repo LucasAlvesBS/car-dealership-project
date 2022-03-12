@@ -17,7 +17,7 @@ export class CustomersService {
       .innerJoinAndSelect('customers.vehicles', 'vehicles')
       .select([
         'customers.id',
-        'customers.full_name',
+        'customers.fullName',
         'vehicles.id',
         'vehicles.name',
       ])
@@ -29,7 +29,7 @@ export class CustomersService {
       .innerJoinAndSelect('customers.vehicles', 'vehicles')
       .select([
         'customers.id',
-        'customers.full_name',
+        'customers.fullName',
         'vehicles.id',
         'vehicles.name',
       ])
