@@ -32,7 +32,7 @@ export class VehiclesService {
         'vehicles.year',
         'vehicles.passengers',
       ])
-      .where(`vehicles.id = ${conditions}`)
+      .where(conditions)
       .getOne();
   }
 

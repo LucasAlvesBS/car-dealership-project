@@ -21,7 +21,7 @@ export class OrdersService {
         'orders.totalQuantity',
         'customers.fullName',
       ])
-      .where(`customers.id = ${conditions}`)
+      .where(conditions)
       .getOne();
   }
 
