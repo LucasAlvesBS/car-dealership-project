@@ -14,7 +14,7 @@ import { CreateVehicleDto } from 'src/shared/dtos/create/create-vehicle.dto';
 import { UpdateVehicleDto } from 'src/shared/dtos/update/update-vehicle.dto';
 import { VehiclesService } from './vehicles.service';
 
-@Controller('daelership/vehicles')
+@Controller('dealership/vehicles')
 export class VehiclesController {
   constructor(private readonly vehicleService: VehiclesService) {}
 
