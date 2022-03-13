@@ -9,6 +9,9 @@ module.exports = {
   database: process.env.DB_NAME,
   synchronize: false,
   logging: false,
+  ssl: {
+    rejectUnauthorized: false,
+  },
   entities: ['dist/shared/entities/*.entity.js'],
   migrations: ['dist/configs/typeorm/migrations/*.js'],
   cli: {

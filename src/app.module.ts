@@ -15,7 +15,11 @@ import { OrdersModule } from './app/orders/orders.module';
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      synchronize: true,
+      synchronize: false,
+      logging: false,
+      ssl: {
+        rejectUnauthorized: false,
+      },
       entities: [__dirname + '/**/*.entity{.js,.ts}'],
     } as TypeOrmModuleOptions),
     CustomersModule,
