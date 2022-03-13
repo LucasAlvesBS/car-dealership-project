@@ -1,7 +1,7 @@
-import { Column, Entity, JoinTable, ManyToMany } from 'typeorm';
+import { Column, Entity, OneToMany } from 'typeorm';
 import { Role } from '../enums/role.enum';
 import { Dealership } from './dealership.entity';
-import { Vehicles } from './vehicle.entity';
+import { Orders } from './order.entity';
 
 @Entity({ name: 'customers' })
 export class Customers extends Dealership {
@@ -17,11 +17,6 @@ export class Customers extends Dealership {
   @Column({ type: 'enum', enum: Role, default: Role.User })
   role: Role;
 
-  @ManyToMany(() => Vehicles, (vehicles) => vehicles.customers)
-  @JoinTable({
-    name: 'customers_vehicles',
-    joinColumns: [{ name: 'customer_id' }],
-    inverseJoinColumns: [{ name: 'vehicle_id' }],
-  })
-  vehicles: Vehicles[];
+  @OneToMany(() => Orders, (orders) => orders.customer)
+  orders: Orders[];
 }

@@ -1,11 +1,14 @@
 import { Column, Entity, ManyToMany } from 'typeorm';
-import { Customers } from './customer.entity';
 import { Dealership } from './dealership.entity';
+import { Orders } from './order.entity';
 
 @Entity({ name: 'vehicle' })
 export class Vehicles extends Dealership {
   @Column({ length: '100' })
-  name: string;
+  brand: string;
+
+  @Column({ length: '100' })
+  model: string;
 
   @Column({ length: '100' })
   color: string;
@@ -16,6 +19,6 @@ export class Vehicles extends Dealership {
   @Column()
   passengers: number;
 
-  @ManyToMany(() => Customers, (customers) => customers.vehicles)
-  customers: Customers[];
+  @ManyToMany(() => Orders, (orders) => orders.vehicles)
+  orders: Orders[];
 }
