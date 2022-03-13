@@ -20,7 +20,7 @@ export class Orders extends Dealership {
   totalQuantity: number;
 
   @ManyToOne(() => Customers, (customer) => customer.orders)
-  @JoinColumn({ name: 'user_id' })
+  @JoinColumn({ name: 'customer_id' })
   customer: Customers;
 
   @ManyToMany(() => Vehicles, (vehicles) => vehicles.orders)
