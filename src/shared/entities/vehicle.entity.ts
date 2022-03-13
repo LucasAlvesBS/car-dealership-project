@@ -2,7 +2,7 @@ import { Column, Entity, ManyToMany } from 'typeorm';
 import { Dealership } from './dealership.entity';
 import { Orders } from './order.entity';
 
-@Entity({ name: 'vehicle' })
+@Entity({ name: 'vehicles' })
 export class Vehicles extends Dealership {
   @Column({ length: '100' })
   brand: string;
