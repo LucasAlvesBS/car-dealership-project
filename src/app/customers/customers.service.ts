@@ -14,26 +14,36 @@ export class CustomersService {
 
   async findAllCustomers() {
     return createQueryBuilder(Customers, 'customers')
-      .innerJoinAndSelect('customers.vehicles', 'vehicles')
+      .leftJoinAndSelect('customers.orders', 'orders')
+      .leftJoinAndSelect('orders.vehicles', 'vehicles')
       .select([
         'customers.id',
         'customers.fullName',
+        'orders.id',
+        'orders.payment',
+        'orders.totalQuantity',
         'vehicles.id',
-        'vehicles.name',
+        'vehicles.brand',
+        'vehicles.model',
       ])
       .getMany();
   }
 
   async getProfile(conditions: FindConditions<Customers>) {
     return createQueryBuilder(Customers, 'customers')
-      .innerJoinAndSelect('customers.vehicles', 'vehicles')
+      .leftJoinAndSelect('customers.orders', 'orders')
+      .leftJoinAndSelect('orders.vehicles', 'vehicles')
       .select([
         'customers.id',
         'customers.fullName',
+        'orders.id',
+        'orders.payment',
+        'orders.totalQuantity',
         'vehicles.id',
-        'vehicles.name',
+        'vehicles.brand',
+        'vehicles.model',
       ])
-      .where(`customers.id = ${conditions}`)
+      .where(conditions)
       .getOne();
   }
 
