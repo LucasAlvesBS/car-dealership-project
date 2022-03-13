@@ -3,7 +3,11 @@ import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 export class CreateVehicleDto {
   @IsNotEmpty()
   @IsString()
-  name: string;
+  brand: string;
+
+  @IsNotEmpty()
+  @IsString()
+  model: string;
 
   @IsNotEmpty()
   @IsString()
