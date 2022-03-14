@@ -15,11 +15,17 @@ export class OrdersService {
   async findOneOrder(conditions: FindConditions<Orders>) {
     return createQueryBuilder(Orders, 'orders')
       .innerJoinAndSelect('orders.customer', 'customers')
+      .innerJoinAndSelect('orders.vehicles', 'vehicles')
       .select([
         'orders.id',
         'orders.payment',
         'orders.totalQuantity',
         'customers.fullName',
+        'vehicles.brand',
+        'vehicles.model',
+        'vehicles.year',
+        'vehicles.color',
+        'vehicles.passengers',
       ])
       .where(conditions)
       .getOne();
