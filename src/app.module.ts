@@ -12,10 +12,14 @@ import { OrdersModule } from './app/orders/orders.module';
       type: process.env.DB_TYPE,
       url: process.env.DATABASE_URL,
       synchronize: false,
-      logging: false,
-      ssl: {
-        rejectUnauthorized: false,
+      ssl: true,
+      extra: {
+        ssl: {
+          rejectUnauthorized: false,
+        },
       },
+      debug: true,
+      logging: false,
       entities: [__dirname + '/**/*.entity{.js,.ts}'],
     } as TypeOrmModuleOptions),
     CustomersModule,
