@@ -28,7 +28,8 @@ export class VehiclesService {
     return createQueryBuilder(Vehicles, 'vehicles')
       .select([
         'vehicles.id',
-        'vehicles.name',
+        'vehicles.brand',
+        'vehicles.model',
         'vehicles.year',
         'vehicles.passengers',
       ])
