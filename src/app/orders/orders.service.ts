@@ -14,7 +14,7 @@ export class OrdersService {
 
   async findOneOrder(conditions: FindConditions<Orders>) {
     return createQueryBuilder(Orders, 'orders')
-      .innerJoinAndSelect('orders.customer_id', 'customers')
+      .innerJoinAndSelect('orders.customer', 'customers')
       .select([
         'orders.id',
         'orders.payment',
