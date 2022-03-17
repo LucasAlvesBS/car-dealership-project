@@ -19,6 +19,9 @@ export class Orders extends Dealership {
   @Column({ name: 'total_quantity' })
   totalQuantity: number;
 
+  @Column({ name: 'total_cost' })
+  totalCost: number;
+
   @ManyToOne(() => Customers, (customer) => customer.orders)
   @JoinColumn({ name: 'customer_id' })
   customer: Customers;

@@ -8,6 +8,7 @@ export class CreateOrders1647197218360 implements MigrationInterface {
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         payment payment_options NOT NULL,
         total_quantity int NOT NULL,
+        total_cost decimal(10, 2),
         customer_id UUID,
         vehicle_id UUID,
         created_at timestamp DEFAULT CURRENT_TIMESTAMP,
