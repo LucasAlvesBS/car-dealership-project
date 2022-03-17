@@ -16,8 +16,11 @@ export class Vehicles extends Dealership {
   @Column()
   year: number;
 
-  @Column()
-  passengers: number;
+  @Column({ name: 'unit_quantity' })
+  unitQuantity: number;
+
+  @Column({ name: 'unit_price' })
+  unitPrice: number;
 
   @ManyToMany(() => Orders, (orders) => orders.vehicles)
   orders: Orders[];

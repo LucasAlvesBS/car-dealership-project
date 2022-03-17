@@ -19,5 +19,9 @@ export class CreateVehicleDto {
 
   @IsNotEmpty()
   @IsNumber()
-  passengers: number;
+  unitQuantity: number;
+
+  @IsNotEmpty()
+  @IsNumber()
+  unitPrice: number;
 }

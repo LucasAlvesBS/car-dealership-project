@@ -19,7 +19,8 @@ export class VehiclesService {
         'vehicles.brand',
         'vehicles.model',
         'vehicles.year',
-        'vehicles.passengers',
+        'vehicles.unitQuantity',
+        'vehicles.unitPrice',
       ])
       .getMany();
   }
@@ -31,7 +32,8 @@ export class VehiclesService {
         'vehicles.brand',
         'vehicles.model',
         'vehicles.year',
-        'vehicles.passengers',
+        'vehicles.unitQuantity',
+        'vehicles.unitPrice',
       ])
       .where(conditions)
       .getOne();
