@@ -17,20 +17,27 @@ export class OrdersService {
       .innerJoinAndSelect('orders.customer', 'customers')
       .innerJoinAndSelect('orders.vehicles', 'vehicles')
       .select([
-        'orders.id',
-        'orders.payment',
+        'orders.id as id',
+        'orders.payment as payment',
+        'orders.totalQuantity as totalQuantity',
+        'SUM(vehicles.unitPrice) as totalCost',
+        'customers.fullName as fullName',
+      ])
+      .where(conditions)
+      .groupBy('orders.id')
+      .addGroupBy('customers.fullName')
+      .getRawOne();
+  }
+  /* 'orders.payment',
         'orders.totalQuantity',
+        'orders.totalCost',
         'customers.fullName',
         'vehicles.brand',
         'vehicles.model',
         'vehicles.year',
         'vehicles.color',
         'vehicles.passengers',
-      ])
-      .where(conditions)
-      .getOne();
-  }
-
+        'vehicles.unitPrice', */
   async createOrder(data: CreateOrderDto) {
     const order = this.orderRepository.create(data);
     order.totalQuantity = order.vehicles.length;
