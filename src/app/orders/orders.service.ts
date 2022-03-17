@@ -28,16 +28,7 @@ export class OrdersService {
       .addGroupBy('customers.fullName')
       .getRawOne();
   }
-  /* 'orders.payment',
-        'orders.totalQuantity',
-        'orders.totalCost',
-        'customers.fullName',
-        'vehicles.brand',
-        'vehicles.model',
-        'vehicles.year',
-        'vehicles.color',
-        'vehicles.passengers',
-        'vehicles.unitPrice', */
+
   async createOrder(data: CreateOrderDto) {
     const order = this.orderRepository.create(data);
     order.totalQuantity = order.vehicles.length;
